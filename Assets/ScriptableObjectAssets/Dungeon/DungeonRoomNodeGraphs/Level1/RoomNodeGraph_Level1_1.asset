@@ -50,8 +50,8 @@ MonoBehaviour:
   roomNodeTypeList: {fileID: 11400000, guid: 3f572f9faabcd334f8fe9dbe91dacb9b, type: 2}
   rect:
     serializedVersion: 2
-    x: 467
-    y: 193
+    x: 437
+    y: 208
     width: 160
     height: 75
   isLeftClickDragging: 0

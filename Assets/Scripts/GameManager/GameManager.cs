@@ -45,8 +45,17 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     /// <summary>
     /// Create player in scene at position
     /// </summary>
-  
 
+    public void PlayDungeonLevel(int dungeonLevelListIndex)
+    {
+        // Build dungeon for level
+        bool dungeonBuiltSucessfully = DungeonBuilder.Instance.GenerateDungeon(dungeonLevelList[dungeonLevelListIndex]);
+
+        if (!dungeonBuiltSucessfully)
+        {
+            Debug.LogError("Couldn't build dungeon from specified rooms and node graphs");
+        }
+    }
     private void OnEnable()
     {
        
@@ -127,12 +136,13 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         return dungeonLevelList[currentDungeonLevelListIndex];
     }
 
+    
 
-    #region Validation
+        #region Validation
 
 #if UNITY_EDITOR
 
-    private void OnValidate()
+        private void OnValidate()
     {
         HelperUtilities.ValidateCheckEnumerableValues(this, nameof(dungeonLevelList), dungeonLevelList);
     }
